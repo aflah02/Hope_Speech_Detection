@@ -1,5 +1,5 @@
 from datasets import load_dataset
-import pandas as pd
+
 def get_dataset(language):
     dataset = load_dataset("hope_edi", language)
     train = dataset["train"].to_pandas()
