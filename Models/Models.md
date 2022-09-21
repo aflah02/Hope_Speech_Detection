@@ -1,0 +1,9 @@
+- Naive Bayes
+- SVM
+- Logistic Regression
+- Decision Tree
+- Random Forest
+- Bagging Boosting
+- LSTM
+- RNN
+- BERT
