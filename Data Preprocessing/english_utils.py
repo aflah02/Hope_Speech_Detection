@@ -2,6 +2,7 @@ import nltk
 import pandas as pd
 import re
 from nltk.corpus import stopwords
+from nltk.tokenize import TweetTokenizer
 
 def replace_username(post: str) -> str:
     post = re.sub('@[^\s]+', '<user>', post)
@@ -23,7 +24,13 @@ def remove_stopwords(post: list[str]) -> list[str]:
     return altered_text
 
 def tokenize(text: str) -> list[str]:
-    pass
+    tk = TweetTokenizer()
+    tokenized = tk.tokenize(text)
+    return tokenized
+
+def remove_punctuation(post : str) -> str:
+    post = re.sub('([*]+)|([/]+)|([\]+)|([\)]+)|([\(]+)|([:]+)|([#]+)|([\.]+)|([,]+)|([-]+)|([!]+)|([\?])|([;]+)|[\']|[\"]', '', post)
+    return post
 
 if __name__ == "__main__":
     df = pd.read_csv("Data/english_train.csv")
