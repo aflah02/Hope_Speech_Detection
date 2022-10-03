@@ -3,6 +3,8 @@ import pandas as pd
 import re
 from nltk.corpus import stopwords
 from nltk.tokenize import TweetTokenizer
+import re
+import emoji
 
 def replace_username(post: str) -> str:
     post = re.sub('@[^\s]+', '<user>', post)
@@ -32,5 +34,9 @@ def remove_punctuation(post : str) -> str:
     post = re.sub('([*]+)|([/]+)|([\]+)|([\)]+)|([\(]+)|([:]+)|([#]+)|([\.]+)|([,]+)|([-]+)|([!]+)|([\?])|([;]+)|[\']|[\"]', '', post)
     return post
 
+def remove_emoji(post : str) -> str:
+    altered_text = emoji.replace_emoji(post, replace='')
+    return altered_text
+
 if __name__ == "__main__":
-    df = pd.read_csv("Data/english_train.csv")
+    df = pd.read_csv("../Data/english_train.csv")
