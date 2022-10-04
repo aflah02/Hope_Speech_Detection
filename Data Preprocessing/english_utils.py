@@ -1,10 +1,7 @@
-
 import pandas as pd
-import re
 from nltk.corpus import stopwords
 from nltk.tokenize import TweetTokenizer
-import re
-import emoji
+import re, emoji, os
 
 def replace_username(post: str) -> str:
     post = re.sub('@[^\s]+', '<user>', post)
@@ -30,13 +27,27 @@ def tokenize(text: str) -> list[str]:
     tokenized = tk.tokenize(text)
     return tokenized
 
-def remove_punctuation(post : str) -> str:
+def remove_punctuation(post: str) -> str:
     post = re.sub('([*]+)|([/]+)|([\]+)|([\)]+)|([\(]+)|([:]+)|([#]+)|([\.]+)|([,]+)|([-]+)|([!]+)|([\?])|([;]+)|[\']|[\"]', '', post)
     return post
 
-def remove_emoji(post : str) -> str:
-    altered_text = emoji.replace_emoji(post, replace='')
+def remove_emoji(post: str) -> str:
+    altered_text = emoji.replace_emoji(post, replace='<emoji>')
     return altered_text
 
+def preprocess(text: str, stopwords_remove: bool = False):
+    text = text.lower()
+    text = replace_urls(text)
+    text = replace_username(text)
+    text = remove_punctuation(text)
+    text = remove_whitespaces(text)
+    text = remove_emoji(text)
+    text = tokenize(text)
+    if stopwords_remove:
+        text = remove_stopwords(text)
+    return text
+
 if __name__ == "__main__":
-    df = pd.read_csv("../Data/english_train.csv")
+    df_english = pd.read_csv(os.path.dirname(__file__) + "/../Data/english_train.csv")
+    df_english["tokenized_text"] = df_english.apply(lambda row: preprocess(row["text"]), axis = 1)
+    df_english.to_csv(os.path.dirname(__file__) + "/PreprocessedData/english_train_preprocessed.csv")
