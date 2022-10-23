@@ -177,3 +177,9 @@ Word_Embeddings/Pre Computed Word Embeddings/w2v_300_train_english.npy
 Word_Embeddings/Pre Computed Word Embeddings/ft_300_train_english.npy
 Word_Embeddings/Pre Computed Word Embeddings/ft_300_test_english.npy
 Word_Embeddings/Pre Computed Word Embeddings/ft_300_dev_english.npy
+Word_Embeddings/Pre Computed Word Embeddings/train_english_tfidf.npy
+Word_Embeddings/Pre Computed Word Embeddings/train_english_tfidf_pca.npy
+Word_Embeddings/Pre Computed Word Embeddings/test_english_tfidf.npy
+Word_Embeddings/Pre Computed Word Embeddings/test_english_tfidf_pca.npy
+Word_Embeddings/Pre Computed Word Embeddings/dev_english_tfidf.npy
+Word_Embeddings/Pre Computed Word Embeddings/dev_english_tfidf_pca.npy
