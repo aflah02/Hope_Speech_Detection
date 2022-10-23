@@ -24,3 +24,11 @@ def load_word2vec_300():
     dev = np.load(os.path.join(wv300_save_path, 'w2v_300_dev_english.npy'))
     test = np.load(os.path.join(wv300_save_path, 'w2v_300_test_english.npy'))
     return train, dev, test
+
+def load_labels():
+    parent_dir = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
+    labels_save_path = os.path.join(parent_dir, 'Word_Embeddings\Pre Computed Word Embeddings')
+    train = np.load(os.path.join(labels_save_path, 'train_labels.npy'))
+    dev = np.load(os.path.join(labels_save_path, 'dev_labels.npy'))
+    test = np.load(os.path.join(labels_save_path, 'test_labels.npy'))
+    return train, dev, test
