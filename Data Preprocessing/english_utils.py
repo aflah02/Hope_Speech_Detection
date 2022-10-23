@@ -45,9 +45,27 @@ def preprocess(text: str, stopwords_remove: bool = False):
     text = tokenize(text)
     if stopwords_remove:
         text = remove_stopwords(text)
-    return text
+    return ' '.join(text)
+
+def split_csv(df):
+    df.columns = ["test"]
+    df["text"] = df.apply(lambda row: ' '.join(row["test"].split(";")[:-2]), axis = 1)
+    df["label"] = df.apply(lambda row: row["test"].split(";")[-2], axis = 1)
+    df = df.drop(columns=["test"])
+    return df
 
 if __name__ == "__main__":
-    df_english = pd.read_csv(os.path.dirname(__file__) + "/../Data/english_train.csv")
-    df_english["tokenized_text"] = df_english.apply(lambda row: preprocess(row["text"]), axis = 1)
-    df_english.to_csv(os.path.dirname(__file__) + "/PreprocessedData/english_train_preprocessed.csv")
+    df_english_train = pd.read_csv("Data/OldData/english_train.csv", header = None)
+    df_english_dev = pd.read_csv("Data/OldData/english_dev.csv", header = None)
+    df_english_test = pd.read_csv("Data/OldData/english_test.csv", header = None)
+    df_english_train = split_csv(df_english_train)
+    df_english_dev = split_csv(df_english_dev)
+    df_english_test = split_csv(df_english_test)
+    
+    df_english_train["preprocessed_text"] = df_english_train.apply(lambda row: preprocess(row.text), axis = 1)
+    df_english_dev["preprocessed_text"] = df_english_dev.apply(lambda row: preprocess(row.text), axis = 1)
+    df_english_test["preprocessed_text"] = df_english_test.apply(lambda row: preprocess(row.text), axis = 1)
+
+    df_english_train.to_csv("Data/PreprocessedData/english_train_preprocess.csv")
+    df_english_dev.to_csv("Data/PreprocessedData/english_dev_preprocess.csv")
+    df_english_test.to_csv("Data/PreprocessedData/english_test_preprocess.csv")
