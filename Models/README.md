@@ -1,0 +1,6 @@
+- K Means
+- K Medoids
+- K Nearest Neighbors
+- Nearest Centroid
+- Linear Discriminant Analysis
+- Quadratic Discriminant Analysis
