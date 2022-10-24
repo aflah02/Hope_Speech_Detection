@@ -167,4 +167,6 @@ Word_Embeddings/Pre Computed Word Embeddings/ls_english_train_spacy_universal_se
 venv/
 Word_Embeddings/Pre Computed Word Embeddings/english_train_folds_tf_idf.npy
 Word_Embeddings/Pre Computed Word Embeddings/english_train_folds_sentence_model1_prePCA.npy
+Word_Embeddings/Pre Computed Word Embeddings/english_train_folds_sentence_model1_postPCA.npy
 Word_Embeddings/Pre Computed Word Embeddings/english_train_folds_sentence_model2_prePCA.npy
+Word_Embeddings/Pre Computed Word Embeddings/english_train_folds_sentence_model2_postPCA.npy
