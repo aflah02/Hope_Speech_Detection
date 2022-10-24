@@ -185,3 +185,7 @@ Word_Embeddings/Pre Computed Word Embeddings/test_english_tfidf.npy
 Word_Embeddings/Pre Computed Word Embeddings/test_english_tfidf_pca.npy
 Word_Embeddings/Pre Computed Word Embeddings/dev_english_tfidf.npy
 Word_Embeddings/Pre Computed Word Embeddings/dev_english_tfidf_pca.npy
+Word_Embeddings/Pre Computed Word Embeddings/english_train_folds_sentence_model1_prePCA.npy
+Word_Embeddings/Pre Computed Word Embeddings/english_train_folds_sentence_model1_postPCA.npy
+Word_Embeddings/Pre Computed Word Embeddings/english_train_folds_sentence_model2_postPCA.npy
+Word_Embeddings/Pre Computed Word Embeddings/english_train_folds_sentence_model2_prePCA.npy
