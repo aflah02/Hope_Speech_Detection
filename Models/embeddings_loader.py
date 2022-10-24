@@ -48,3 +48,31 @@ def load_tfidf_pca():
     dev = np.load(os.path.join(tfidf_save_path, 'dev_english_tfidf_pca.npy'), allow_pickle=True)
     test = np.load(os.path.join(tfidf_save_path, 'test_english_tfidf_pca.npy'), allow_pickle=True)
     return train, dev, test
+
+def load_sent_trans_model1_no_pca():
+    parent_dir = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
+    # sent_trans_save_path = os.path.join(parent_dir, 'Word_Embeddings\Pre Computed Word Embeddings')
+    x = np.load('Word_Embeddings\Pre Computed Word Embeddings\english_sentence_model1_prePCA.npy', allow_pickle=True)
+    train, dev, test = x[0]
+    return train, dev, test
+
+def load_sent_trans_model1_pca():
+    parent_dir = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
+    # sent_trans_save_path = os.path.join(parent_dir, 'Word_Embeddings\Pre Computed Word Embeddings')
+    x = np.load('Word_Embeddings\Pre Computed Word Embeddings\english_sentence_model1_postPCA.npy', allow_pickle=True)
+    train, dev, test = x[0]
+    return train, dev, test
+
+def load_sent_trans_model2_no_pca():
+    parent_dir = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
+    # sent_trans_save_path = os.path.join(parent_dir, 'Word_Embeddings\Pre Computed Word Embeddings')
+    x = np.load('Word_Embeddings\Pre Computed Word Embeddings\english_sentence_model2_prePCA.npy', allow_pickle=True)
+    train, dev, test = x[0]
+    return train, dev, test
+
+def load_sent_trans_model2_pca():
+    parent_dir = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
+    # sent_trans_save_path = os.path.join(parent_dir, 'Word_Embeddings\Pre Computed Word Embeddings')
+    x = np.load('Word_Embeddings\Pre Computed Word Embeddings\english_sentence_model1_postPCA.npy', allow_pickle=True)
+    train, dev, test = x[0]
+    return train, dev, test
