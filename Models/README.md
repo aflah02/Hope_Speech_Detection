@@ -1,9 +1,5 @@
-- Naive Bayes
-- SVM
-- Logistic Regression
-- Decision Tree
-- Random Forest
-- Bagging Boosting
-- LSTM
-- RNN
-- BERT
+- K Means
+- K Medoids
+- K Nearest Neighbors
+- Nearest Centroid
+- Linear Discriminant Analysis
