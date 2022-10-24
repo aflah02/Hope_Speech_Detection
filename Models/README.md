@@ -3,3 +3,4 @@
 - K Nearest Neighbors
 - Nearest Centroid
 - Linear Discriminant Analysis
+- Quadratic Discriminant Analysis
