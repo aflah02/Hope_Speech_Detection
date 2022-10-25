@@ -1,6 +1,8 @@
 import numpy as np
 import os
 
+os.chdir("/content/drive/MyDrive") #comment this line if not on colab
+
 def load_glove_twitter_25():
     parent_dir = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
     gt25_save_path = os.path.join(parent_dir, 'Word_Embeddings\Pre Computed Word Embeddings')
