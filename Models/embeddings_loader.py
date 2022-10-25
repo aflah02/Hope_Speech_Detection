@@ -13,7 +13,7 @@ def load_glove_twitter_25(path = None):
     return train, dev, test
 
 def load_fasttext_300(path = None):
-    if path != None:
+    if path == None:
         parent_dir = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
         ft300_save_path = os.path.join(parent_dir, 'Word_Embeddings\Pre Computed Word Embeddings')
     else:
@@ -24,7 +24,7 @@ def load_fasttext_300(path = None):
     return train, dev, test
 
 def load_word2vec_300(path = None):
-    if path != None:
+    if path == None:
         parent_dir = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
         wv300_save_path = os.path.join(parent_dir, 'Word_Embeddings\Pre Computed Word Embeddings')
     else:
@@ -35,7 +35,7 @@ def load_word2vec_300(path = None):
     return train, dev, test
 
 def load_labels(path = None):
-    if path != None:
+    if path == None:
         parent_dir = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
         labels_save_path = os.path.join(parent_dir, 'Word_Embeddings\Pre Computed Word Embeddings')
     else:
@@ -46,7 +46,7 @@ def load_labels(path = None):
     return train, dev, test
 
 def load_tfidf_no_pca(path = None):
-    if path != None:
+    if path == None:
         parent_dir = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
         tfidf_save_path = os.path.join(parent_dir, 'Word_Embeddings\Pre Computed Word Embeddings')
     else:
@@ -57,7 +57,7 @@ def load_tfidf_no_pca(path = None):
     return train, dev, test
 
 def load_tfidf_pca(path = None):
-    if path != None:
+    if path == None:
         parent_dir = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
         tfidf_save_path = os.path.join(parent_dir, 'Word_Embeddings\Pre Computed Word Embeddings')
     else:
@@ -68,7 +68,7 @@ def load_tfidf_pca(path = None):
     return train, dev, test
 
 def load_sent_trans_better_no_pca(path = None):
-    if path != None:
+    if path == None:
         parent_dir = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
         save_path = os.path.join(parent_dir, 'Word_Embeddings\Pre Computed Word Embeddings')
     else:
@@ -78,7 +78,7 @@ def load_sent_trans_better_no_pca(path = None):
     return train, dev, test
 
 def load_sent_trans_better_pca(path = None):
-    if path != None:
+    if path == None:
         parent_dir = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
         save_path = os.path.join(parent_dir, 'Word_Embeddings\Pre Computed Word Embeddings')
     else:
@@ -88,7 +88,7 @@ def load_sent_trans_better_pca(path = None):
     return train, dev, test
 
 def load_sent_trans_fast_no_pca(path = None):
-    if path != None:
+    if path == None:
         parent_dir = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
         save_path = os.path.join(parent_dir, 'Word_Embeddings\Pre Computed Word Embeddings')
     else:
@@ -98,7 +98,7 @@ def load_sent_trans_fast_no_pca(path = None):
     return train, dev, test
 
 def load_sent_trans_fast_pca(path = None):
-    if path != None:
+    if path == None:
         parent_dir = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
         save_path = os.path.join(parent_dir, 'Word_Embeddings\Pre Computed Word Embeddings')
     else:
