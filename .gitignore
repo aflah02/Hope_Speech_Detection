@@ -189,3 +189,19 @@ Word_Embeddings/Pre Computed Word Embeddings/english_train_folds_sentence_model1
 Word_Embeddings/Pre Computed Word Embeddings/english_train_folds_sentence_model1_postPCA.npy
 Word_Embeddings/Pre Computed Word Embeddings/english_train_folds_sentence_model2_postPCA.npy
 Word_Embeddings/Pre Computed Word Embeddings/english_train_folds_sentence_model2_prePCA.npy
+Models/Model Dumps/k_medoids_ft300.joblib
+Models/Model Dumps/k_medoids_gt25.joblib
+Models/Model Dumps/k_medoids_sent_trans_better_no_pca.joblib
+Models/Model Dumps/k_medoids_sent_trans_better_pca.joblib
+Models/Model Dumps/k_medoids_sent_trans_fast_no_pca.joblib
+Models/Model Dumps/k_medoids_sent_trans_fast_pca.joblib
+Models/Model Dumps/k_medoids_tfidf_pca.joblib
+Models/Model Dumps/k_medoids_w2v300.joblib
+Models/Model Dumps/KNN_ft300.joblib
+Models/Model Dumps/KNN_gt25.joblib
+Models/Model Dumps/KNN_sent_trans_best_no_pca.joblib
+Models/Model Dumps/KNN_sent_trans_best_pca.joblib
+Models/Model Dumps/KNN_sent_trans_fast_no_pca.joblib
+Models/Model Dumps/KNN_sent_trans_fast_pca.joblib
+Models/Model Dumps/KNN_tfidf_pca.joblib
+Models/Model Dumps/KNN_w2v300.joblib
