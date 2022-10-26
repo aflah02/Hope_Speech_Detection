@@ -205,3 +205,11 @@ Models/Model Dumps/KNN_sent_trans_fast_no_pca.joblib
 Models/Model Dumps/KNN_sent_trans_fast_pca.joblib
 Models/Model Dumps/KNN_tfidf_pca.joblib
 Models/Model Dumps/KNN_w2v300.joblib
+Models/Model Dumps/linear_discriminant_analysis_tfidf_pca.joblib
+Models/Model Dumps/linear_discriminant_analysis_w2v300.joblib
+Models/Model Dumps/linear_discriminant_analysis_sent_trans_fast_pca.joblib
+Models/Model Dumps/linear_discriminant_analysis_sent_trans_fast_no_pca.joblib
+Models/Model Dumps/linear_discriminant_analysis_sent_trans_better_pca.joblib
+Models/Model Dumps/linear_discriminant_analysis_sent_trans_better_no_pca.joblib
+Models/Model Dumps/linear_discriminant_analysis_gt25.joblib
+Models/Model Dumps/linear_discriminant_analysis_ft300.joblib
