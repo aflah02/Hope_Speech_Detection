@@ -1,4 +1,6 @@
 import json, os
+from venv import create
+import pandas as pd
 from joblib import dump, load
 from embeddings_loader import *
 from sklearn.metrics import f1_score
@@ -9,29 +11,43 @@ from sklearn.metrics import recall_score
 from sklearn.metrics import precision_score
 from sklearn.metrics import roc_auc_score
 
-def get_f1_test_scores(filename):
+def get_f1_test_scores(filename, score_list):
     with open(filename, "r") as f:
         x = json.loads(f.read())
-    result = []
+    result = [filename.replace(".ipynb", '')]
     for each_cell in x["cells"]:
         if "outputs" in each_cell and each_cell["outputs"]:
             try:
                 output = each_cell["outputs"][0]["text"]
                 for each_output in output:
-                    if "F1 Test" in each_output:
-                        test_score = each_output.replace("F1 Test:  ", '')
-                        test_score = test_score[:-2]
-                        result.append(float(test_score))
+                    for score in score_list:
+                        if score in each_output:
+                            test_score = each_output.replace(f"{score}:  ", '')
+                            test_score = test_score[:-2]
+                            result.append(float(test_score))
             except:
                 continue
     return result
 
-def create_table(classifier, results):
-    print("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------")
-    print(f"{classifier}:", end = " ")
-    for i in results[:-1]:
-        print(f"{i} |", end = " ")
-    print(f"{results[-1]}")
+def create_csv():
+    column_names = ["Classifier",
+            "Accuracy Train", "Accuracy Dev", "Accuracy Test",
+            "Weighted F1 Train", "Weighted F1 Dev", "Weighted F1 Test",
+            "Macro F1 Train", "Macro F1 Dev", "Macro F1 Test",
+            "Micro F1 Train", "Micro F1 Dev", "Micro F1 Test",
+            "Weighted Recall Train", "Weighted Recall Dev", "Weighted Recall Test",
+            "Macro Recall Train", "Macro Recall Dev", "Macro Recall Test",
+            "Micro Recall Train", "Micro Recall Dev", "Micro Recall Test"]
+    df = {}
+    for filename in os.listdir():
+        if ".ipynb" in filename:
+            curr_scores = get_f1_test_scores(filename, column_names[1:])
+            for i in range(len(column_names)):
+                if column_names[i] not in df:
+                    df[column_names[i]] = []
+                df[column_names[i]].append(curr_scores[i])
+    df = pd.DataFrame(df)
+    df.to_csv("MidEval_Reported_Scores.csv")
 
 parent_dir = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
 save_folder_path = os.path.join(parent_dir, 'Models\Model Dumps')
@@ -86,6 +102,4 @@ def computeAllScores(y_pred_train, y_pred_dev, y_pred_test):
     print(confusion_matrix(test_labels, y_pred_test))
 
 if __name__=="__main__":
-    for filename in os.listdir():
-        if ".ipynb" in filename:
-            create_table(filename.replace(".ipynb", ''), get_f1_test_scores(filename))
+    create_csv()
