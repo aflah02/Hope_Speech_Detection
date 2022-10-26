@@ -1,0 +1,1 @@
+Since the model dumps are too big for some algorithms we've decided to save them on Google Drive. You can find them [here](https://drive.google.com/drive/folders/1DkqKFQzSa4snGodgZRe8p6tGtYWtdwt_?usp=sharing)
