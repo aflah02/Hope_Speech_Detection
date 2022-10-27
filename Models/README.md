@@ -1,6 +1,15 @@
+- Adaboost
+- Decision Trees
+- Extra Trees Classifier
 - K Means
 - K Medoids
 - K Nearest Neighbors
-- Nearest Centroid
 - Linear Discriminant Analysis
+- Logistic Regression
+- MLP
+- Naive Bayes
+- Nearest Centroid
+- Perceptron
 - Quadratic Discriminant Analysis
+- Random Forests
+- XGBoost
