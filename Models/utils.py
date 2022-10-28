@@ -14,17 +14,20 @@ from sklearn.metrics import roc_auc_score
 def get_f1_test_scores(filename, score_list):
     with open(filename, "r") as f:
         x = json.loads(f.read())
-    result = [filename.replace(".ipynb", '')]
+    result = []
     for each_cell in x["cells"]:
         if "outputs" in each_cell and each_cell["outputs"]:
             try:
+                temp = [filename.replace(".ipynb", '')]
                 output = each_cell["outputs"][0]["text"]
                 for each_output in output:
                     for score in score_list:
                         if score in each_output:
                             test_score = each_output.replace(f"{score}:  ", '')
                             test_score = test_score[:-2]
-                            result.append(float(test_score))
+                            temp.append(float(test_score))
+                if len(temp)>1:
+                    result.append(temp)
             except:
                 continue
     return result
@@ -38,15 +41,13 @@ def create_csv():
             "Weighted Recall Train", "Weighted Recall Dev", "Weighted Recall Test",
             "Macro Recall Train", "Macro Recall Dev", "Macro Recall Test",
             "Micro Recall Train", "Micro Recall Dev", "Micro Recall Test"]
-    df = {}
+    embeds = ["glove", "fasttext", "word2vec", "tf-idf", "faster-no-pca", "faster-pca", "better-no-pca", "better-pca"]
+    df = []
     for filename in os.listdir():
         if ".ipynb" in filename:
             curr_scores = get_f1_test_scores(filename, column_names[1:])
-            for i in range(len(column_names)):
-                if column_names[i] not in df:
-                    df[column_names[i]] = []
-                df[column_names[i]].append(curr_scores[i])
-    df = pd.DataFrame(df)
+            df.extend(curr_scores)
+    df = pd.DataFrame(df, columns=column_names)
     df.to_csv("../Results/MidEval_Reported_Scores.csv")
 
 parent_dir = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
@@ -102,5 +103,6 @@ def computeAllScores(y_pred_train, y_pred_dev, y_pred_test):
     print(confusion_matrix(test_labels, y_pred_test))
 
 if __name__=="__main__":
-    # create_csv()
-    pass
+    create_csv()
+    # df = pd.read_csv("../Results/MidEval_Reported_Scores.csv")
+    # print(df.head())
