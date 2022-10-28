@@ -64,7 +64,7 @@ try:
     print(sys.argv[1])
     train_labels, dev_labels, test_labels = load_labels(sys.argv[1])
 except:
-    train_labels, dev_labels, test_labels = load_labels()
+    train_labels, dev_labels, test_labels = load_labels("/content/drive/MyDrive/word_embeddings/computed_embeddings")
 
 label_replacement = {
     'Hope_speech': 0,
