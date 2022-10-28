@@ -47,7 +47,7 @@ def create_csv():
                     df[column_names[i]] = []
                 df[column_names[i]].append(curr_scores[i])
     df = pd.DataFrame(df)
-    df.to_csv("MidEval_Reported_Scores.csv")
+    df.to_csv("../Results/MidEval_Reported_Scores.csv")
 
 parent_dir = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
 save_folder_path = os.path.join(parent_dir, 'Models\Model Dumps')
@@ -102,4 +102,5 @@ def computeAllScores(y_pred_train, y_pred_dev, y_pred_test):
     print(confusion_matrix(test_labels, y_pred_test))
 
 if __name__=="__main__":
-    create_csv()
+    # create_csv()
+    pass
