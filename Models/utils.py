@@ -10,6 +10,7 @@ from sklearn.metrics import classification_report
 from sklearn.metrics import recall_score
 from sklearn.metrics import precision_score
 from sklearn.metrics import roc_auc_score
+import sys
 
 def get_f1_test_scores(filename, score_list):
     with open(filename, "r") as f:
@@ -59,7 +60,10 @@ def save_model(model, save_path):
 def load_model(model_path):
     return load(os.path.join(save_folder_path, model_path))
 
-train_labels, dev_labels, test_labels = load_labels()
+try:
+    train_labels, dev_labels, test_labels = load_labels(sys.argv[1])
+catch(Exception e):
+    train_labels, dev_labels, test_labels = load_labels()
 
 label_replacement = {
     'Hope_speech': 0,
