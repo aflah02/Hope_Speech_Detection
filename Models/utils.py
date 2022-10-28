@@ -12,14 +12,15 @@ from sklearn.metrics import precision_score
 from sklearn.metrics import roc_auc_score
 import sys
 
-def get_f1_test_scores(filename, score_list):
+def get_f1_test_scores(filename, score_list, embeds):
     with open(filename, "r") as f:
         x = json.loads(f.read())
     result = []
+    c = 0
     for each_cell in x["cells"]:
         if "outputs" in each_cell and each_cell["outputs"]:
             try:
-                temp = [filename.replace(".ipynb", '')]
+                temp = [filename.replace(".ipynb", '') + "_" + embeds[c]]
                 output = each_cell["outputs"][0]["text"]
                 for each_output in output:
                     for score in score_list:
@@ -29,6 +30,7 @@ def get_f1_test_scores(filename, score_list):
                             temp.append(float(test_score))
                 if len(temp)>1:
                     result.append(temp)
+                    c+=1
             except:
                 continue
     return result
@@ -46,7 +48,7 @@ def create_csv():
     df = []
     for filename in os.listdir():
         if ".ipynb" in filename:
-            curr_scores = get_f1_test_scores(filename, column_names[1:])
+            curr_scores = get_f1_test_scores(filename, column_names[1:], embeds)
             df.extend(curr_scores)
     df = pd.DataFrame(df, columns=column_names)
     df.to_csv("../Results/MidEval_Reported_Scores.csv")
