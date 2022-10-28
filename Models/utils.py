@@ -63,7 +63,7 @@ def load_model(model_path):
 try:
     print(sys.argv[1])
     train_labels, dev_labels, test_labels = load_labels(sys.argv[1])
-catch(Exception e):
+except:
     train_labels, dev_labels, test_labels = load_labels()
 
 label_replacement = {
