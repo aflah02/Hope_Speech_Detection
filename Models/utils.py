@@ -61,6 +61,7 @@ def load_model(model_path):
     return load(os.path.join(save_folder_path, model_path))
 
 try:
+    print(sys.argv[1])
     train_labels, dev_labels, test_labels = load_labels(sys.argv[1])
 catch(Exception e):
     train_labels, dev_labels, test_labels = load_labels()
