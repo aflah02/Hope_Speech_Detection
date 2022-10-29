@@ -1,0 +1,16 @@
+,Algorithm,Embedding,Weighted F1 Test
+54,Linear_Discriminant_Analysis,better-no-pca,0.927858656079817
+71,MLP,better-pca,0.92621715188508
+62,Logistic_Regression,better-no-pca,0.921669688970863
+94,Perceptron,better-no-pca,0.920375849357491
+118,XGBoost,better-no-pca,0.918274038718544
+31,KNN,better-pca,0.917780872078567
+110,Random_Forests,better-no-pca,0.910007909217749
+79,Naive_Bayes,better-pca,0.906833147945327
+15,Decision_Trees,better-pca,0.906336052066473
+22,ExtraTrees_Classifier,better-no-pca,0.90328518923482
+103,Quadratic_Discriminant_Analysis,better-pca,0.89441962408543
+7,AdaBoost,better-pca,0.886987781361916
+83,Nearest_Centroid,tf-idf,0.811931490671866
+34,K_Means,word2vec,0.688255794197219
+46,K_Medoids,better-no-pca,0.54469201486806
