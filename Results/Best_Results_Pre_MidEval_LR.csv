@@ -1,0 +1,9 @@
+,Algorithm,Embedding,Weighted F1 Test
+62,Logistic_Regression,better-no-pca,0.921669688970863
+63,Logistic_Regression,better-pca,0.921242293043789
+61,Logistic_Regression,faster-pca,0.912346797686368
+59,Logistic_Regression,tf-idf,0.911643752193956
+60,Logistic_Regression,faster-no-pca,0.911277516845095
+57,Logistic_Regression,fasttext,0.875274188101925
+58,Logistic_Regression,word2vec,0.874086003754434
+56,Logistic_Regression,glove,0.868722509421234

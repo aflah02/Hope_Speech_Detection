@@ -167,5 +167,6 @@ Word_Embeddings/Pre Computed Word Embeddings/ls_english_train_spacy_universal_se
 venv/
 Word_Embeddings/Pre Computed Word Embeddings/
 Models/Model Dumps/
+Exploratory Data Analysis/PreprocessedData
 !Word_Embeddings/Pre Computed Word Embeddings/README.md
 !Models/Model Dumps/README.md

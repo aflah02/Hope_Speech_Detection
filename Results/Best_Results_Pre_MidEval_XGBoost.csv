@@ -1,0 +1,9 @@
+,Algorithm,Embedding,Weighted F1 Test
+118,XGBoost,better-no-pca,0.918274038718544
+119,XGBoost,better-pca,0.916388750044291
+116,XGBoost,faster-no-pca,0.90893082254732
+117,XGBoost,faster-pca,0.90665421867482
+114,XGBoost,word2vec,0.892543304536443
+115,XGBoost,tf-idf,0.890660704920627
+113,XGBoost,fasttext,0.888239158466389
+112,XGBoost,glove,0.876677406691981

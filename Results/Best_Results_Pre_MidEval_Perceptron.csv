@@ -1,0 +1,9 @@
+,Algorithm,Embedding,Weighted F1 Test
+94,Perceptron,better-no-pca,0.920375849357491
+91,Perceptron,tf-idf,0.906291394390694
+95,Perceptron,better-pca,0.901837113761219
+93,Perceptron,faster-pca,0.901400365328368
+92,Perceptron,faster-no-pca,0.88561380788291
+88,Perceptron,glove,0.874433292012703
+89,Perceptron,fasttext,0.868722509421234
+90,Perceptron,word2vec,0.868722509421234

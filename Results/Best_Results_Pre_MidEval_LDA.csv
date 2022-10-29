@@ -1,0 +1,9 @@
+,Algorithm,Embedding,Weighted F1 Test
+54,Linear_Discriminant_Analysis,better-no-pca,0.927858656079817
+55,Linear_Discriminant_Analysis,better-pca,0.923979181692151
+52,Linear_Discriminant_Analysis,faster-no-pca,0.91424970267889
+53,Linear_Discriminant_Analysis,faster-pca,0.913427685676479
+51,Linear_Discriminant_Analysis,tf-idf,0.90964873147793
+49,Linear_Discriminant_Analysis,fasttext,0.88872019435775
+50,Linear_Discriminant_Analysis,word2vec,0.88702633937301
+48,Linear_Discriminant_Analysis,glove,0.872009118335984
