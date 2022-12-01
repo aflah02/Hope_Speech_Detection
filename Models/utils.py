@@ -82,60 +82,59 @@ dev_labels = [label_replacement[label] for label in dev_labels]
 test_labels = [label_replacement[label] for label in test_labels]
 train_aug_labels = [label_replacement[label] for label in train_aug_labels]
 
-def computeAllScores(y_pred_train, y_pred_dev, y_pred_test, aug=False):
-    if not aug:
-        print("Accuracy Train: ", accuracy_score(train_labels, y_pred_train))
+# Drop Non-English 
+train_labels_two_class = [label for label in train_labels if label != 2]
+dev_labels_two_class = [label for label in dev_labels if label != 2]
+test_labels_two_class = [label for label in test_labels if label != 2]
+train_aug_labels_two_class = [label for label in train_aug_labels if label != 2]
+
+def computeAllScores(y_pred_train, y_pred_dev, y_pred_test, aug=False, two_class=False):
+    if aug:
+        if two_class:
+            train_l = train_aug_labels_two_class
+            dev_l = dev_aug_labels
+            test_l = test_aug_labels
+        else:
+            train_l = train_aug_labels
+            dev_l = dev_aug_labels
+            test_l = test_aug_labels
     else:
-        print("Accuracy Train: ", accuracy_score(train_aug_labels, y_pred_train))
-    print("Accuracy Dev: ", accuracy_score(dev_labels, y_pred_dev))
-    print("Accuracy Test: ", accuracy_score(test_labels, y_pred_test))
-    if not aug:
-        print("Weighted F1 Train: ", f1_score(train_labels, y_pred_train, average="weighted"))
-    else:
-        print("Weighted F1 Train: ", f1_score(train_aug_labels, y_pred_train, average="weighted"))
-    print("Weighted F1 Dev: ", f1_score(dev_labels, y_pred_dev, average='weighted'))
-    print("Weighted F1 Test: ", f1_score(test_labels, y_pred_test, average='weighted'))
-    if not aug:
-        print("Macro F1 Train: ", f1_score(train_labels, y_pred_train, average="macro"))
-    else:
-        print("Macro F1 Train: ", f1_score(train_aug_labels, y_pred_train, average="macro"))
-    print("Macro F1 Dev: ", f1_score(dev_labels, y_pred_dev, average='macro'))
-    print("Macro F1 Test: ", f1_score(test_labels, y_pred_test, average='macro'))
-    if not aug:
-        print("Micro F1 Train: ", f1_score(train_labels, y_pred_train, average="micro"))
-    else:
-        print("Micro F1 Train: ", f1_score(train_aug_labels, y_pred_train, average="micro"))
-    print("Micro F1 Dev: ", f1_score(dev_labels, y_pred_dev, average='micro'))
-    print("Micro F1 Test: ", f1_score(test_labels, y_pred_test, average='micro'))
-    if not aug:
-        print("Weighted Recall Train: ", recall_score(train_labels, y_pred_train, average="weighted"))
-    else:
-        print("Weighted Recall Train: ", recall_score(train_aug_labels, y_pred_train, average="weighted"))
-    print("Weighted Recall Dev: ", recall_score(dev_labels, y_pred_dev, average='weighted'))
-    print("Weighted Recall Test: ", recall_score(test_labels, y_pred_test, average='weighted'))
-    if not aug:
-        print("Macro Recall Train: ", recall_score(train_labels, y_pred_train, average="macro"))
-    else:
-        print("Macro Recall Train: ", recall_score(train_aug_labels, y_pred_train, average="macro"))
-    print("Macro Recall Dev: ", recall_score(dev_labels, y_pred_dev, average='macro'))
-    print("Macro Recall Test: ", recall_score(test_labels, y_pred_test, average='macro'))
-    if not aug:
-        print("Micro Recall Train: ", recall_score(train_labels, y_pred_train, average="micro"))
-    else:
-        print("Micro Recall Train: ", recall_score(train_aug_labels, y_pred_train, average="micro"))
-    print("Micro Recall Dev: ", recall_score(dev_labels, y_pred_dev, average='micro'))
-    print("Micro Recall Test: ", recall_score(test_labels, y_pred_test, average='micro'))
+        if two_class:
+            train_l = train_labels_two_class
+            dev_l = dev_labels_two_class
+            test_l = test_labels_two_class
+        else:
+            train_l = train_labels
+            dev_l = dev_labels
+            test_l = test_labels
+    print("Accuracy Train: ", accuracy_score(train_l, y_pred_train))
+    print("Accuracy Dev: ", accuracy_score(dev_l, y_pred_dev))
+    print("Accuracy Test: ", accuracy_score(test_l, y_pred_test))
+    print("Weighted F1 Train: ", f1_score(train_l, y_pred_train, average="weighted"))
+    print("Weighted F1 Dev: ", f1_score(dev_l, y_pred_dev, average="weighted"))
+    print("Weighted F1 Test: ", f1_score(test_l, y_pred_test, average="weighted"))
+    print("Macro F1 Train: ", f1_score(train_l, y_pred_train, average="macro"))
+    print("Macro F1 Dev: ", f1_score(dev_l, y_pred_dev, average='macro'))
+    print("Macro F1 Test: ", f1_score(test_l, y_pred_test, average='macro'))
+    print("Micro F1 Train: ", f1_score(train_l, y_pred_train, average="micro"))
+    print("Micro F1 Dev: ", f1_score(dev_l, y_pred_dev, average='micro'))
+    print("Micro F1 Test: ", f1_score(test_l, y_pred_test, average='micro'))
+    print("Weighted Recall Train: ", recall_score(train_l, y_pred_train, average="weighted"))
+    print("Weighted Recall Dev: ", recall_score(dev_l, y_pred_dev, average='weighted'))
+    print("Weighted Recall Test: ", recall_score(test_l, y_pred_test, average='weighted'))
+    print("Macro Recall Train: ", recall_score(train_l, y_pred_train, average="macro"))
+    print("Macro Recall Dev: ", recall_score(dev_l, y_pred_dev, average='macro'))
+    print("Macro Recall Test: ", recall_score(test_l, y_pred_test, average='macro'))
+    print("Micro Recall Train: ", recall_score(train_l, y_pred_train, average="micro"))
+    print("Micro Recall Dev: ", recall_score(dev_l, y_pred_dev, average='micro'))
+    print("Micro Recall Test: ", recall_score(test_l, y_pred_test, average='micro'))
     # Confusion Matrix
-    if not aug:
-        print("Confusion Matrix Train: ")
-        print(confusion_matrix(train_labels, y_pred_train))
-    else:
-        print("Confusion Matrix Train: ")
-        print(confusion_matrix(train_aug_labels, y_pred_train))
+    print("Confusion Matrix Train: ")
+    print(confusion_matrix(train_l, y_pred_train))
     print("Confusion Matrix Dev: ")
-    print(confusion_matrix(dev_labels, y_pred_dev))
+    print(confusion_matrix(dev_l, y_pred_dev))
     print("Confusion Matrix Test: ")
-    print(confusion_matrix(test_labels, y_pred_test))
+    print(confusion_matrix(test_l, y_pred_test))
 
 if __name__=="__main__":
     create_csv()
