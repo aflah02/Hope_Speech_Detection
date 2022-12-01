@@ -92,8 +92,8 @@ def computeAllScores(y_pred_train, y_pred_dev, y_pred_test, aug=False, two_class
     if aug:
         if two_class:
             train_l = train_aug_labels_two_class
-            dev_l = dev_aug_labels
-            test_l = test_aug_labels
+            dev_l = dev_labels_two_class
+            test_l = test_labels_two_class
         else:
             train_l = train_aug_labels
             dev_l = dev_aug_labels
