@@ -45,6 +45,17 @@ def load_labels(path = None):
     test = np.load(os.path.join(labels_save_path, 'test_labels.npy'), allow_pickle=True)
     return train, dev, test
 
+def load_augmented_labels(path = None):
+    if path == None:
+        parent_dir = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
+        labels_save_path = os.path.join(parent_dir, 'Word_Embeddings\Pre Computed Word Embeddings')
+    else:
+        labels_save_path = path
+    train = np.load(os.path.join(labels_save_path, 'augmented_train_labels.npy'), allow_pickle=True)
+    dev = np.load(os.path.join(labels_save_path, 'dev_labels.npy'), allow_pickle=True)
+    test = np.load(os.path.join(labels_save_path, 'test_labels.npy'), allow_pickle=True)
+    return train, dev, test
+
 def load_tfidf_no_pca(path = None):
     if path == None:
         parent_dir = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
@@ -104,5 +115,15 @@ def load_sent_trans_fast_pca(path = None):
     else:
         save_path = path
     x = np.load(os.path.join(save_path, 'english_train_folds_sentence_model2_postPCA.npy'), allow_pickle=True)
+    train, dev, test = x[0]
+    return train, dev, test
+
+def load_sent_trans_augmented_no_pca(path = None):
+    if path == None:
+        parent_dir = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
+        save_path = os.path.join(parent_dir, 'Word_Embeddings\Pre Computed Word Embeddings')
+    else:
+        save_path = path
+    x = np.load(os.path.join(save_path, 'augmented_english_train_folds_sentence_model1_prePCA.npy'), allow_pickle=True)
     train, dev, test = x[0]
     return train, dev, test
