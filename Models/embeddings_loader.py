@@ -127,3 +127,41 @@ def load_sent_trans_augmented_no_pca(path = None):
     x = np.load(os.path.join(save_path, 'augmented_english_train_folds_sentence_model1_prePCA.npy'), allow_pickle=True)
     train, dev, test = x[0]
     return train, dev, test
+
+def load_only_2_class(embed, aug=False):
+    if aug:
+        train_labels, dev_labels, test_labels = load_augmented_labels()
+    else:
+        train_labels, dev_labels, test_labels = load_labels()
+    if embed == 'tfidf':
+        train, dev, test = load_tfidf_no_pca()
+    elif embed == 'tfidf_pca':
+        train, dev, test = load_tfidf_pca()
+    elif embed == "w2v":
+        train, dev, test = load_word2vec_300()
+    elif embed == "fasttext":
+        train, dev, test = load_fasttext_300()
+    elif embed == "glove":
+        train, dev, test = load_glove_twitter_25()
+    elif embed == "sent_trans_better_no_pca":
+        train, dev, test = load_sent_trans_better_no_pca()
+    elif embed == "sent_trans_better_pca":
+        train, dev, test = load_sent_trans_better_pca()
+    elif embed == "sent_trans_fast_no_pca":
+        train, dev, test = load_sent_trans_fast_no_pca()
+    elif embed == "sent_trans_fast_pca":
+        train, dev, test = load_sent_trans_fast_pca()
+    elif embed == "sent_trans_augmented_no_pca":
+        train, dev, test = load_sent_trans_augmented_no_pca()
+    
+    # If label is not-English drop the sample
+    train = train[train_labels != 2]
+    dev = dev[dev_labels != 2]
+    test = test[test_labels != 2]
+
+    # Remove The Labels
+    train_labels = train_labels[train_labels != 2]
+    dev_labels = dev_labels[dev_labels != 2]
+    test_labels = test_labels[test_labels != 2]
+
+    return train, dev, test, train_labels, dev_labels, test_labels
