@@ -188,3 +188,27 @@ def load_only_2_class(embed, aug=False):
     test_labels = test_labels[test_labels != 2]
 
     return train, dev, test, train_labels, dev_labels, test_labels
+
+import pickle
+
+def load_custom_embeddings(path = None, gensim = True):
+    if path == None:
+        parent_dir = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
+        custom_path = os.path.join(parent_dir, 'Word_Embeddings\Pre Computed Word Embeddings')
+    else:
+        custom_path = path
+
+    aug_emb = None
+    train_emb = None
+    if gensim:
+        with open(os.path.join(custom_path, 'gensim_custom_w2v_embeddings_augmented_train.pickle'), 'rb') as handle:
+            aug_emb = pickle.load(handle)
+        with open(os.path.join(custom_path, 'gensim_custom_w2v_embeddings_train.pickle'), 'rb') as handle:
+            train_emb = pickle.load(handle)
+
+    else:
+        with open(os.path.join(custom_path, 'custom_w2v_augmented_train.pickle'), 'rb') as handle:
+            aug_emb = pickle.load(handle)
+        with open(os.path.join(custom_path, 'custom_w2v_train.pickle'), 'rb') as handle:
+            train_emb = pickle.load(handle)
+    return aug_emb, train_emb
