@@ -65,10 +65,10 @@ def load_model(model_path):
 try:
     print(sys.argv[1])
     train_labels, dev_labels, test_labels = load_labels(sys.argv[1])
-    train_aug_labels, dev_aug_labels, test_aug_labels = load_augmented_labels(sys.argv[1])
+    train_aug_labels, dev_labels, test_labels = load_augmented_labels(sys.argv[1])
 except:
     train_labels, dev_labels, test_labels = load_labels()
-    train_aug_labels, dev_aug_labels, test_aug_labels = load_augmented_labels()
+    train_aug_labels, dev_labels, test_labels  = load_augmented_labels()
 
 label_replacement = {
     'Hope_speech': 0,
@@ -81,6 +81,7 @@ train_labels = [label_replacement[label] for label in train_labels]
 dev_labels = [label_replacement[label] for label in dev_labels]
 test_labels = [label_replacement[label] for label in test_labels]
 train_aug_labels = [label_replacement[label] for label in train_aug_labels]
+
 
 # Drop Non-English 
 train_labels_two_class = [label for label in train_labels if label != 2]
@@ -96,8 +97,8 @@ def computeAllScores(y_pred_train, y_pred_dev, y_pred_test, aug=False, two_class
             test_l = test_labels_two_class
         else:
             train_l = train_aug_labels
-            dev_l = dev_aug_labels
-            test_l = test_aug_labels
+            dev_l = dev_labels
+            test_l = test_labels
     else:
         if two_class:
             train_l = train_labels_two_class
