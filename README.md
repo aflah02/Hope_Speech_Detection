@@ -8,7 +8,8 @@ Hope speech is any message or content that is positive, encouraging, reassuring,
 
 ### TLDR for our project?
 
-We beat SOTA, and by a lot ;)
+We match SOTA in Task 1 with simple ML Models while we beat SOTA in Task 2, and by a lot ;) using DL Models
+
 ### Directory Structure:
 
 - [Data Preprocessing](https://github.com/aflah02/Hope_Speech_Detection/tree/main/Data%20Preprocessing): Contains the Preprocessing Files
@@ -19,5 +20,12 @@ We beat SOTA, and by a lot ;)
 - [Explainability](https://github.com/aflah02/Hope_Speech_Detection/tree/main/Explainability): Files to see evaluate models from an explainability lens
 - [Exploratory Data Analysis](https://github.com/aflah02/Hope_Speech_Detection/tree/main/Exploratory%20Data%20Analysis): Our Visualizations and Analysis
 - [Models](https://github.com/aflah02/Hope_Speech_Detection/tree/main/Models): Contains the code for our models and also the folder to store the saves. The saves for all our ML models are hosted on Google Drive due to space constraints while our DL Model checkpoints are too large to shift and hence are not present on Google Drive but you can generate them by simply running the notebook
+
+### Our Top Models:
+
+<img width="494" alt="image" src="https://user-images.githubusercontent.com/72096386/205753009-c4006adb-cb78-4ae7-afb1-62db5b8a241b.png">
+
+Task 1 mimics the [First Shared Task](https://sites.google.com/view/lt-edi-2021/home) while Task 2 mimics the [Second Shared Task](https://sites.google.com/view/lt-edi-2022/home)
+
 
 
