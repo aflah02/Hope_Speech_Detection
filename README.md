@@ -1,12 +1,18 @@
 # Hope Speech Detection: Identifying Positive Actors in Toxic Discourses 
 
-This repository contains our course project for CSE 343 (Monsoon 2022).
+This repository contains our course project for [CSE 343 (Monsoon 2022)](http://techtree.iiitd.edu.in/viewDescription/filename?=CSE343).
 
 ### What is Hope Speech?
 
 Hope speech is any message or content that is positive, encouraging, reassuring, inclusive and supportive that inspires and engenders optimism in the minds of people.
 
 ### TLDR for our project?
+
+We define two tasks:
+
+Task 1: Multiclass Hope Speech Detection; In this task, we categorize the tweets into three classes, Hope, Non-Hope and Non-English.
+
+Task 2: Two class classification; In this task we categorize the tweets as Hope and Non-Hope speech and drop the “Non-English” class. 
 
 We match SOTA in Task 1 with simple ML Models while we beat SOTA in Task 2, and by a lot ;) using DL Models
 
@@ -26,6 +32,8 @@ We match SOTA in Task 1 with simple ML Models while we beat SOTA in Task 2, and 
 <img width="494" alt="image" src="https://user-images.githubusercontent.com/72096386/205753009-c4006adb-cb78-4ae7-afb1-62db5b8a241b.png">
 
 Task 1 mimics the [First Shared Task](https://sites.google.com/view/lt-edi-2021/home) while Task 2 mimics the [Second Shared Task](https://sites.google.com/view/lt-edi-2022/home)
+
+
 
 
 
