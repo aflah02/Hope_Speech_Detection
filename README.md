@@ -6,6 +6,9 @@ This repository contains our course project for CSE 343 (Monsoon 2022).
 
 Hope speech is any message or content that is positive, encouraging, reassuring, inclusive and supportive that inspires and engenders optimism in the minds of people.
 
+### TLDR for our project?
+
+We beat SOTA, and by a lot ;)
 ### Directory Structure:
 
 - [Data Preprocessing](https://github.com/aflah02/Hope_Speech_Detection/tree/main/Data%20Preprocessing): Contains the Preprocessing Files
