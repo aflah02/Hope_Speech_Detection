@@ -27,6 +27,18 @@ It consists of a very skewed distribution, with around 20k samples in favour of 
 - We dumped the final embeddings for future use, and each of us then took up different types of Classifier models from sklearn, and performed the stated task using all the embeddings thus generated. Towards the end, we also tried different DL models like `BERT`, `BERTweet`, and other similar Pre-trained Transformer-based classifiers.
 - We have reported the `Weighted F1 scores` for Task 1 as that is the metric which was used in the original paper. For Task 2 we take the top 5 ML models from Task 1 and also run LSTM, RNN and some pre-trained models for the 2 way classification and report the `Macro F1` scores.
 
+# Results
+
+
+Surpisingly enough, we managed to beat the SOTA results reported for both the tasks.
+- For Task 1, we were able to do so using classical ML methods like `Linear Discriminant Analysis`.
+- For Task 2, we beat SOTA here as well but this time we managed to do so by a large margin (by about 20 Macro F1 points) using DL methods.
+
+### Our Top Models:
+<img width="494" alt="image" src="https://user-images.githubusercontent.com/72096386/205753009-c4006adb-cb78-4ae7-afb1-62db5b8a241b.png">
+
+Task 1 mimics the [First Shared Task](https://sites.google.com/view/lt-edi-2021/home) while Task 2 mimics the [Second Shared Task](https://sites.google.com/view/lt-edi-2022/home)
+
 ---
 
 ### Directory Structure:
@@ -40,8 +52,3 @@ It consists of a very skewed distribution, with around 20k samples in favour of 
 - [`Exploratory Data Analysis`](https://github.com/aflah02/Hope_Speech_Detection/tree/main/Exploratory%20Data%20Analysis): Our Visualizations and Analysis
 - [`Models`](https://github.com/aflah02/Hope_Speech_Detection/tree/main/Models): Contains the code for our models and also the folder to store the saves. The saves for all our ML models are hosted on Google Drive due to space constraints while our DL Model checkpoints are too large to shift and hence are not present on Google Drive but you can generate them by simply running the notebook
 
-### Our Top Models:
-
-<img width="494" alt="image" src="https://user-images.githubusercontent.com/72096386/205753009-c4006adb-cb78-4ae7-afb1-62db5b8a241b.png">
-
-Task 1 mimics the [First Shared Task](https://sites.google.com/view/lt-edi-2021/home) while Task 2 mimics the [Second Shared Task](https://sites.google.com/view/lt-edi-2022/home)
