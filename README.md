@@ -2,6 +2,8 @@
 
 This repository contains our course project for [CSE-343 (Monsoon 2022)](http://techtree.iiitd.edu.in/viewDescription/filename?=CSE343).
 
+*Accepted at ICLR 2023 for the Tiny Papers Track*
+
 ### What is Hope Speech?
 
 Hope speech is any message or content that is positive, encouraging, reassuring, inclusive and supportive that inspires and engenders optimism in the minds of people.
