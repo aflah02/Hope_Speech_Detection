@@ -54,3 +54,27 @@ Task 1 mimics the [First Shared Task](https://sites.google.com/view/lt-edi-2021/
 - [`Exploratory Data Analysis`](https://github.com/aflah02/Hope_Speech_Detection/tree/main/Exploratory%20Data%20Analysis): Our Visualizations and Analysis
 - [`Models`](https://github.com/aflah02/Hope_Speech_Detection/tree/main/Models): Contains the code for our models and also the folder to store the saves. The saves for all our ML models are hosted on Google Drive due to space constraints while our DL Model checkpoints are too large to shift and hence are not present on Google Drive but you can generate them by simply running the notebook
 
+---
+### Citation Details
+To cite our work, kindly use the following BibTeX:
+```
+@inproceedings{DBLP:conf/iclr/YadavKSS23,
+  author       = {Neemesh Yadav and
+                  Mohammad Aflah Khan and
+                  Diksha Sethi and
+                  Raghav Sahni},
+  editor       = {Krystal Maughan and
+                  Rosanne Liu and
+                  Thomas F. Burns},
+  title        = {Beyond Negativity: Re-Analysis and Follow-Up Experiments on Hope Speech
+                  Detection},
+  booktitle    = {The First Tiny Papers Track at {ICLR} 2023, Tiny Papers @ {ICLR} 2023,
+                  Kigali, Rwanda, May 5, 2023},
+  publisher    = {OpenReview.net},
+  year         = {2023},
+  url          = {https://openreview.net/pdf?id=eaKoBpxCPe},
+  timestamp    = {Wed, 19 Jul 2023 17:21:16 +0200},
+  biburl       = {https://dblp.org/rec/conf/iclr/YadavKSS23.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+```
